@@ -6,17 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 @Data
-public class CaheRoom
+public class CaheSeat
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
-
-    @ManyToOne
-    private CaheCinema cinema;
+    private Integer seatNumber;
+    private Integer rowNumber;
+    private Long roomId;
 }

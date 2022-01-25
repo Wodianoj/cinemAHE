@@ -57,3 +57,114 @@ INSERT INTO cahe_movie_director (id_movie, id_director)
 VALUES (1, 1), (2, 1), (3, 2), (4, 3), (5, 4), (6, 5), (7, 5),
 (8, 6), (9, 8), (9, 9), (10, 7), (11, 10), (12, 11);
 
+INSERT INTO cahe_seance (start_date, end_date, movie_id, room_id)
+VALUES
+('2022-01-26 16:00:00', '2022-01-26 18:00:00', 1, 1),
+('2022-01-26 20:00:00', '2022-01-26 22:00:00', 2, 2),
+('2022-01-27 16:00:00', '2022-01-27 18:00:00', 3, 3),
+('2022-01-27 20:00:00', '2022-01-27 22:00:00', 4, 1),
+('2022-01-28 16:00:00', '2022-01-28 18:00:00', 5, 2),
+('2022-01-28 20:00:00', '2022-01-28 22:00:00', 6, 3),
+('2022-01-29 16:00:00', '2022-01-29 18:00:00', 7, 1),
+('2022-01-29 20:00:00', '2022-01-29 22:00:00', 8, 2),
+('2022-01-30 16:00:00', '2022-01-30 18:00:00', 9, 3),
+('2022-01-30 20:00:00', '2022-01-30 22:00:00', 10, 1),
+('2022-01-31 16:00:00', '2022-01-31 18:00:00', 11, 2),
+('2022-01-31 20:00:00', '2022-01-31 22:00:00', 12, 3),
+('2022-01-31 16:00:00', '2022-01-31 18:00:00', 1, 1),
+('2022-02-01 20:00:00', '2022-02-01 22:00:00', 2, 2);
+
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 1, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 1, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 1, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 1, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 1, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 1, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 2, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 2, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 2, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 2, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 2, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 2, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 3, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 3, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 3, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 3, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 3, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 3, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 4, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 4, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 4, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 4, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 4, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 4, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 5, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 5, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 5, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 5, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 5, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 5, 1);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 1, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 1, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 1, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 1, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 1, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 1, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 2, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 2, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 2, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 2, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 2, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 2, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 3, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 3, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 3, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 3, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 3, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 3, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 4, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 4, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 4, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 4, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 4, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 4, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 5, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 5, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 5, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 5, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 5, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 5, 2);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 1, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 1, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 1, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 1, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 1, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 1, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 2, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 2, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 2, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 2, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 2, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 2, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 3, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 3, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 3, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 3, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 3, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 3, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 4, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 4, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 4, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 4, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 4, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 4, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (1, 5, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (2, 5, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (3, 5, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 5, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 5, 3);
+INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 5, 3);
+
+
+
+
