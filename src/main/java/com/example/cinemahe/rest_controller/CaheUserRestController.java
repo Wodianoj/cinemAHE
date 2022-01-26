@@ -1,7 +1,7 @@
-package com.example.cinemahe.controller;
+package com.example.cinemahe.rest_controller;
 
-import com.example.cinemahe.model.CaheSeat;
-import com.example.cinemahe.repository.CaheSeatRepository;
+import com.example.cinemahe.model.CaheUser;
+import com.example.cinemahe.repository.CaheUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(path = "/seat")
-public class CaheSeatController
+@RequestMapping(path = "/user")
+public class CaheUserRestController
 {
     @Autowired
-    private CaheSeatRepository caheSeatRepository;
+    private CaheUserRepository caheUserRepository;
 
     @GetMapping(path = "/all")
     public @ResponseBody
-    Iterable<CaheSeat> getAll()
+    Iterable<CaheUser> getAll()
     {
-        return caheSeatRepository.findAll();
+        return caheUserRepository.findAll();
     }
 }

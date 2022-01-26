@@ -1,4 +1,4 @@
-package com.example.cinemahe.controller;
+package com.example.cinemahe.rest_controller;
 
 import com.example.cinemahe.model.CaheSeance;
 import com.example.cinemahe.repository.CaheSeanceRepository;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(path = "/seance")
-public class CaheSeanceController
+public class CaheSeanceRestController
 {
     @Autowired
     private CaheSeanceRepository caheSeanceRepository;

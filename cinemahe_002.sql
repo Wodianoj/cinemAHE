@@ -165,6 +165,13 @@ INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (4, 5, 3);
 INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (5, 5, 3);
 INSERT INTO cahe_seat (seat_number, `row_number`, room_id) VALUES (6, 5, 3);
 
+INSERT INTO cahe_user (first_name, last_name, mail, registration_date, phone_number, password)
+VALUES ('Adam', 'Wesołowski', 'adamcio125@gmail.com', '2022-01-12 23:14:56', '+48 662 773 456', hex('abc')),
+('Franciszek', 'Bałaga', 'bala@o2.pl', '2022-01-09 11:00:56', '612 343 998', hex('123')),
+('Bogdan', 'Krupniewski', 'misu15@wp.pl', '2022-01-23 14:14:09', NULL, hex('ab1')),
+('Czesława', 'Nowotko', 'czesia@vp.pl', '2022-01-22 08:25:11', '+48 734 593 660', hex('1ab')),
+('Dominika', 'Bania', 'nika17@gov.pl', '2022-02-13 20:04:57', '+48 347 112 987', hex('zzz'));
+
 
 
 
