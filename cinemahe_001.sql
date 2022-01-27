@@ -82,6 +82,7 @@ CREATE TABLE IF NOT EXISTS `cinemahe`.`cahe_movie` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(64) NOT NULL,
   `description` VARCHAR(512) NOT NULL,
+  `year` INT NOT NULL,
   `genre_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
