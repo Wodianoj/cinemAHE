@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>cinemAHE</h1>
+
+<ul>
+    <li>STRONA GŁÓWNA</li>
+    <li>REPERTUAR</li>
+    <li>NASZE KINA</li>
+    <li>KUP BILET</li>
+    <li>KONTAKT</li>
+</ul>
+<h2> SKONTAKTUJ SIĘ Z NAMI:</h2>
+
+<div th:each="cinema: ${cinemas}">
+    <p th:text="${cinema.name + ', ' + cinema.address}" />
+    <p th:text="${cinema.contact}" />
+</div>
+
+
+<footer>Copyright 2022 CinemAHE Polska</footer>
+</body>
+</html>
