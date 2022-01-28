@@ -19,7 +19,8 @@ public class CaheMovieService {
     }
 
     public List<CaheMovie> getMovies(final int numberOfMovies) {
-        return movieRepository.findAll(Pageable.ofSize(3)).stream().toList();
+
+        return movieRepository.findAll(Pageable.ofSize(numberOfMovies)).stream().toList();
     }
 
     public List<CaheMovie> getAllMoviesWithTrimmedDescription() {

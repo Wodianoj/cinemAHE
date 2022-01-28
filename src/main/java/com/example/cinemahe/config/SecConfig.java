@@ -13,16 +13,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecConfig extends WebSecurityConfigurerAdapter
 {
-
     private static final String COMMON_PASSWORD = "H@slo123";
 
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception
     {
         auth.inMemoryAuthentication()
-                .withUser("adamcio125@gmail.com").password(passwordEncoder().encode(COMMON_PASSWORD))
+                .withUser("bbb").password(passwordEncoder().encode(COMMON_PASSWORD))
                 .roles("USER")
                 .and()
-                .withUser("bala@o2.pl").password(passwordEncoder().encode(COMMON_PASSWORD))
+                .withUser("aaa").password(passwordEncoder().encode(COMMON_PASSWORD))
                 .roles("USER")
                 .and()
                 .withUser("misu15@wp.pl").password(passwordEncoder().encode(COMMON_PASSWORD))

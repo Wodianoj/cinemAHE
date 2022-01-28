@@ -95,33 +95,42 @@
                 Sprawdź dane i dokonaj płatności:
             </h2>
             <div>
-                <p>Całkowita liczba biletów: <span th:text="${ticketSummary.count}"></span></p>
-                <div th:each="ticket : ${ticketSummary.tickets}"  class="card text-dark">
+                <div th:each="ticket : ${ticketSummary.tickets}"  class="card text-dark my-2">
                     <h5 class="card-header">
                          Film: <span th:text="${ticket.seance.movie.title}"></span>
                     </h5>
-                    <p class="card-text">
-                        Godzina: <span th:text="${ticket.seance.startDate}"></span>
-                    </p>
-                    <p class="card-text">
-                        Sala: <span th:text="${ticket.seance.room.name}"></span>
-                    </p>
-                    <p class="card-text">
-                        Fotel: <span th:text="${ticket.seat.seatNumber}"></span>
-                    </p>
+                    <div class="row p-2">
+                        <div class="col">
+                            <p class="card-text">
+                                Kino: <span th:text="${ticket.seance.room.cinema.name}"></span>
+                            </p>
+                            <p class="card-text">
+                                Sala: <span th:text="${ticket.seance.room.name}"></span>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">
+                                Godzina: <span th:text="${ticket.seance.startDate + ' '}"></span>
+                            </p>
+                            <p class="card-text">
+                                Fotel: <span th:text="${ticket.seat.seatNumber + ' (rząd ' + ticket.seat.rowNumber + ')'}"></span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                Płatność: <span th:text="${ticketSummary.total}"></span> zł
+            <div class="my-4">
+                <p>Całkowita liczba biletów: <span th:text="${ticketSummary.count}"></span></p>
+                <p>Płatność: <span th:text="${ticketSummary.total}"></span> zł</p>
             </div>
-            <form class="my-4 mx-2" th:action="@{/tickets/confirmation}" th:object="${purchaseRequest}" method="post">
+            <form class="m-0 p-0" th:action="@{/tickets/confirmation}" th:object="${purchaseRequest}" method="post">
                 <input type="text"
                        hidden
                        th:field="*{uuid}"
                        id="ticket-uuid">
 
                 <div class="row">
-                    <div class="form-group col m-2">
+                    <div class="form-group col">
                         <label for="ticket-blik">Wpisz kod BLIK:</label>
                         <input type="number"
                                required
@@ -134,7 +143,7 @@
                 </div>
                 <div class="row my-4">
                     <div class="d-grid gap-2">
-                        <button class="btn w3-button w3-deep-purple m-2" type="submit">
+                        <button class="btn w3-button w3-deep-purple" type="submit">
                             <strong>
                                 Kup bilet
                             </strong>

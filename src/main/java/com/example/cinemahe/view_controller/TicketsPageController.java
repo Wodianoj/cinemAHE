@@ -19,6 +19,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import static java.util.UUID.*;
+
 @Controller
 public class TicketsPageController
 {
@@ -87,7 +89,7 @@ public class TicketsPageController
             }
 
             final CaheTicketRequest ticketRequest = CaheTicketRequest.builder()
-                    .uuid(UUID.randomUUID())
+                    .uuid(randomUUID())
                     .creationDate(LocalDateTime.now())
                     .seanceId(form.getSeanceId())
                     .seatIds(form.getSeatIds())
@@ -116,7 +118,7 @@ public class TicketsPageController
         String resultingView;
         try
         {
-            final CaheTicketRequest caheTicketRequest = requestCache.returnAndRemove(UUID.fromString(purchaseRequest.getUuid()));
+            final CaheTicketRequest caheTicketRequest = requestCache.returnAndRemove(fromString(purchaseRequest.getUuid()));
             final CaheTicketRequestForm form = CaheTicketRequestForm.builder().seanceId(caheTicketRequest.getSeanceId()).seatIds(caheTicketRequest.getSeatIds()).build();
             ticketService.buyTicket(purchaseRequest.getBlik(), form);
 

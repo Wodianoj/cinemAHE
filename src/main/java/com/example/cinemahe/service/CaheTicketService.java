@@ -88,7 +88,7 @@ public class CaheTicketService
     public CahePurchaseSummary generatePurchaseSummary(final CaheTicketRequestForm form)
     {
         final List<CaheTicket> tickets = generatesTicketForTheRequest(form);
-        final BigDecimal totalPrice = priceService.getPrice().multiply(BigDecimal.valueOf(4));
+        final BigDecimal totalPrice = priceService.getPrice().multiply(BigDecimal.valueOf(tickets.size()));
 
         return CahePurchaseSummary.builder()
                 .tickets(tickets)
