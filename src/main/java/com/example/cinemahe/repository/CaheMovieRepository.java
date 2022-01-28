@@ -8,4 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CaheMovieRepository extends JpaRepository<CaheMovie, Long> {
+
+    @Query("SELECT cm.id FROM CaheMovie cm")
+    List<Long> findAllIds();
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(path = "/seance")
+@RequestMapping(path = "/api/v1/seance")
 public class CaheSeanceRestController
 {
     @Autowired

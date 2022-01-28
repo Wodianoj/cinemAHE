@@ -11,18 +11,32 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SecConfig extends WebSecurityConfigurerAdapter {
-
+public class SecConfig extends WebSecurityConfigurerAdapter
+{
     private static final String COMMON_PASSWORD = "H@slo123";
 
-    protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(final AuthenticationManagerBuilder auth) throws Exception
+    {
         auth.inMemoryAuthentication()
-                .withUser("user").password(passwordEncoder().encode(COMMON_PASSWORD))
+                .withUser("bbb").password(passwordEncoder().encode(COMMON_PASSWORD))
+                .roles("USER")
+                .and()
+                .withUser("aaa").password(passwordEncoder().encode(COMMON_PASSWORD))
+                .roles("USER")
+                .and()
+                .withUser("misu15@wp.pl").password(passwordEncoder().encode(COMMON_PASSWORD))
+                .roles("USER")
+                .and()
+                .withUser("nika17@gov.pl").password(passwordEncoder().encode(COMMON_PASSWORD))
+                .roles("USER")
+                .and()
+                .withUser("czesia@vp.pl").password(passwordEncoder().encode(COMMON_PASSWORD))
                 .roles("USER");
     }
 
     @Override
-    protected void configure(final HttpSecurity http) throws Exception {
+    protected void configure(final HttpSecurity http) throws Exception
+    {
         http
                 .authorizeRequests()
                 .anyRequest()
@@ -32,7 +46,8 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder()
+    {
         return new BCryptPasswordEncoder();
     }
 }
