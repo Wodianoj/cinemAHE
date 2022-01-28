@@ -89,120 +89,83 @@
 
 <h2>Kup bilet</h2>
 
-<!--<div class="row">
-    <div class="col-lg-2 col-md-1"></div>
-    <div class="col-lg-8 col-md-10">
-        <form class="my-4 mx-2" th:action="@{/register/confirmation}" th:object="${application}" method="post">
-            <div class="row">
-                <div class="form-group col m-2">
-                    <label for="application-name">Imię:</label>
-                    <input type="text"
-                           required
-                           th:field="*{name}"
-                           maxlength="64"
-                           class="form-control"
-                           placeholder="Podaj swoje imię" id="application-name">
+<main>
+    <div class="row">
+        <div class="col-lg-2 col-md-1"></div>
+        <div class="col-lg-8 col-md-10">
+            <h2 class="my-5">
+                Wyszukaj film, który Cię interesuje:
+            </h2>
+            <form class="my-4 mx-2" th:action="@{/tickets/confirmation}" th:object="${ticketRequest}" method="post">
+                <div class="row">
+                    <div class="form-group col m-2">
+                        <label for="ticket-cinema">Wybierz kino:</label>
+                        <select th:field="*{cinemaId}"
+                                required
+                                class="form-select" id="ticket-cinema">
+                            <option th:each="cinema : ${cinemas}"
+                                    th:text="${cinema.name}" th:value="${cinema.id}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group col m-2">
+                        <label for="ticket-movie">Wybierz film:</label>
+                        <select th:field="*{movieId}"
+                                required
+                                class="form-select" id="ticket-movie">
+                            <option th:each="movie : ${movies}"
+                                    th:text="${movie.title + ' (' + movie.genre.genreName  + ')'}"
+                                    th:value="${movie.id}"></option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col m-2">
-                    <label for="interpretation-icon">Nazwisko:</label>
-                    <input type="text"
-                           required
-                           th:field="*{surname}"
-                           maxlength="64"
-                           class="form-control"
-                           placeholder="Podaj swoje nazwisko "
-                           id="interpretation-icon">
+                <div class="row">
+                    <div class="form-group m-2">
+                        <label for="ticket-seance">Wybierz godzinę:</label>
+                        <select th:field="*{seanceId}"
+                                required
+                                class="form-select" id="ticket-seance">
+                            <option th:each="seance : ${seances}"
+                                    th:text="${seance.startTime}" th:value="${seance.id}"></option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="form-group col m-2">
-                    <label for="application-email">Email:</label>
-                    <input type="email"
-                           required
-                           th:field="*{email}"
-                           maxlength="320"
-                           class="form-control"
-                           placeholder="Podaj swój email" id="application-email">
-                </div>
-                <div class="form-group col m-2">
-                    <label for="application-phone">Telefon:</label>
-                    <input type="tel"
-                           maxlength="15"
-                           th:field="*{phone}"
-                           class="form-control"
-                           placeholder="Podaj swój telefon"
-                           id="application-phone">
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col m-2">
-                    <label for="application-password">Hasło:</label>
-                    <input type="password"
-                           maxlength="64"
-                           th:field="*{password}"
-                           class="form-control"
-                           placeholder="Podaj swoje hasło" id="application-password">
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col m-2">
-                    <label for="application-address">Address:</label>
-                    <input type="text"
-                           maxlength="512"
-                           th:field="*{address}"
-                           class="form-control"
-                           placeholder="Podaj swój adres" id="application-address">
-                </div>
-            </div>
+                <p>Podsumowanie:</p>
+                <p>- liczba biletów: 3</p>
+                <p>- film: Pożegnanie z Afryką</p>
+                <p>- sala: 1A</p>
+                <p>- godzina: 17.45</p>
+                <p>- fotele: 3 (rząd 1), 4 (rząd 1), 5 (rząd 1)</p>
+                <p>- łączna cena: 99 zł</p>
 
-            <div class="row">
-                <div class="form-group col m-2">
-                    <label for="application-address">Uwagi do administratora:</label>
-                    <textarea
-                            th:field="*{note}"
-                            class="form-control"
-                            placeholder="Wpisz notatkę" id="application-note"></textarea>
+                <div class="row">
+                    <div class="form-group col m-2">
+                        <label for="ticket-blik">Wpisz kod BLIK:</label>
+                        <input type="number"
+                               required
+                               th:field="*{blik}"
+                               maxlength="6"
+                               minlength="6"
+                               class="form-control"
+                               placeholder="Podaj swój email" id="ticket-blik">
+                    </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="form-group col m-2">
-                    <label for="application-role">Wnioskowana rola:</label>
-                    <select th:field="*{appliedRoleId}"
-                            required
-                            class="form-select" id="application-role">
-                        <option th:each="role : ${roles}"
-                                th:text="${role.name}" th:value="${role.id}"></option>
-                    </select>
+                <div class="row my-4">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn btn-secondary m-2" type="submit">
+                            <strong>
+                                Kup bilet
+                            </strong>
+                        </button>
+                    </div>
                 </div>
-                <div class="form-group col m-2">
-                    <label for="application-access">Wnioskowany poziom uprawnień:</label>
-                    <select th:field="*{appliedAccessId}"
-                            required
-                            class="form-select" id="application-access">
-                        <option th:each="access : ${accesses}"
-                                th:text="${access.description + ' (' + access.level  + ')'}"
-                                th:value="${access.id}"></option>
-                    </select>
-                </div>
-            </div>
-            <div class="row my-4">
-                <div class="d-grid gap-2">
-                    <button class="btn btn btn-secondary m-2" type="submit">
-                        <strong>
-                            Złóż
-                        </strong>
-                    </button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-<div class="col-lg-2 col-md-1"></div>
-</div>-->
+</main>
 
 <footer>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+    <nav class="navbar navbar-expand-sm fixed-bottom">
         <div class="w-100 text-center">
             <p class="text-white text-center">
                 Copyright @ 2022 CinemAHE Polska
