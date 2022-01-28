@@ -1,6 +1,13 @@
 body {
     background: black;
     background-image:  url('../images/chairs.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main {
+    color: white;
+    margin-top: 25px;
 }
 
 header, nav {
@@ -34,4 +41,8 @@ form {
 .cahe-nav-link-active {
     color: #FFF000;
     font-weight: bold;
+}
+
+cahe-btn-primary {
+    background-color: #7C00C8;
 }

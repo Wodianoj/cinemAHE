@@ -20,8 +20,10 @@ public class CaheMovie
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String title;
+    private String shortDescription;
     private String description;
-    private String pathToPicture;
+    private String wideImage;
+    private String thinImage;
     private Integer year;
 
     @ManyToOne

@@ -81,22 +81,22 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `cinemahe`.`cahe_movie`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cinemahe`.`cahe_movie` (
-  `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(64) NOT NULL,
-  `description` VARCHAR(512) NOT NULL,
-  `year` INT NOT NULL,
-  `genre_id` BIGINT NOT NULL,
-  `path_to_picture` varchar(256) NOT NULL,
+CREATE TABLE `cahe_movie` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL,
+  `short_description` varchar(156) NOT NULL,
+  `description` varchar(512) NOT NULL,
+  `year` int(11) NOT NULL,
+  `genre_id` bigint(20) NOT NULL,
+  `wide_image` varchar(256) NOT NULL,
+  `thin_image` varchar(256) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  INDEX `FK_movie_genre_id_idx` (`genre_id` ASC),
-  CONSTRAINT `FK_movie_genre_id`
-    FOREIGN KEY (`genre_id`)
-    REFERENCES `cinemahe`.`cahe_genre` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `FK_movie_genre_id_idx` (`genre_id`),
+  CONSTRAINT `FK_movie_genre_id` FOREIGN KEY (`genre_id`) REFERENCES `cahe_genre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FKqe0j30wq9hvm8rb064gmbknhr` FOREIGN KEY (`genre_id`) REFERENCES `cahe_genre` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
 
 
 -- -----------------------------------------------------
