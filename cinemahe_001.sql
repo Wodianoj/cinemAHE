@@ -87,6 +87,7 @@ CREATE TABLE IF NOT EXISTS `cinemahe`.`cahe_movie` (
   `description` VARCHAR(512) NOT NULL,
   `year` INT NOT NULL,
   `genre_id` BIGINT NOT NULL,
+  `path_to_picture` varchar(256) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `FK_movie_genre_id_idx` (`genre_id` ASC),

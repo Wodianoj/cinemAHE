@@ -21,6 +21,7 @@ public class CaheMovie
     private Long id;
     private String title;
     private String description;
+    private String pathToPicture;
     private Integer year;
 
     @ManyToOne
