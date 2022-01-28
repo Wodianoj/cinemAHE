@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+>
 <head>
-
     <title>CinemAHE: Kup bilet</title>
     <meta charset="utf-8">
 
@@ -29,15 +28,14 @@
 
     <!-- local -->
     <link th:href="@{/css/global.css}" rel="stylesheet"/>
-    <link th:href="@{/css/buy.css}" rel="stylesheet"/>
+    <link th:href="@{/css/tickets.css}" rel="stylesheet"/>
     <script type="text/javascript" th:src="@{/js/global.js}"></script>
-    <script type="text/javascript" th:src="@{/js/buy.js}"></script>
+    <script type="text/javascript" th:src="@{/js/tickets.js}"></script>
 </head>
 
 <body>
-
 <header>
-    <nav class="navbar navbar-expand-sm sticky-top ml-5">
+    <nav class="navbar navbar-expand-sm fixed-top ml-5 ">
         <div class="container-fluid">
             <a class="navbar-brand text-warning" href="/home"><h1>cinemAHE</h1></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -87,8 +85,6 @@
     </nav>
 </header>
 
-<h2>Kup bilet</h2>
-
 <main>
     <div class="row">
         <div class="col-lg-2 col-md-1"></div>
@@ -96,22 +92,18 @@
             <h2 class="my-5">
                 Wyszukaj film, który Cię interesuje:
             </h2>
-            <form class="my-4 mx-2" th:action="@{/tickets/confirmation}" th:object="${ticketRequest}" method="post">
+            <form class="my-4 mx-2" th:action="@{/tickets/payment}" th:object="${ticketRequest}" method="post">
                 <div class="row">
                     <div class="form-group col m-2">
                         <label for="ticket-cinema">Wybierz kino:</label>
-                        <select th:field="*{cinemaId}"
-                                required
-                                class="form-select" id="ticket-cinema">
+                        <select class="form-select" id="ticket-cinema">
                             <option th:each="cinema : ${cinemas}"
                                     th:text="${cinema.name}" th:value="${cinema.id}"></option>
                         </select>
                     </div>
                     <div class="form-group col m-2">
                         <label for="ticket-movie">Wybierz film:</label>
-                        <select th:field="*{movieId}"
-                                required
-                                class="form-select" id="ticket-movie">
+                        <select class="form-select" id="ticket-movie">
                             <option th:each="movie : ${movies}"
                                     th:text="${movie.title + ' (' + movie.genre.genreName  + ')'}"
                                     th:value="${movie.id}"></option>
@@ -125,36 +117,33 @@
                                 required
                                 class="form-select" id="ticket-seance">
                             <option th:each="seance : ${seances}"
-                                    th:text="${seance.startTime}" th:value="${seance.id}"></option>
+                                    th:text="${seance.startDate + ' (sala: ' + seance.room.name + ')' }"
+                                    th:value="${seance.id}"></option>
                         </select>
                     </div>
                 </div>
 
-                <p>Podsumowanie:</p>
-                <p>- liczba biletów: 3</p>
-                <p>- film: Pożegnanie z Afryką</p>
-                <p>- sala: 1A</p>
-                <p>- godzina: 17.45</p>
-                <p>- fotele: 3 (rząd 1), 4 (rząd 1), 5 (rząd 1)</p>
-                <p>- łączna cena: 99 zł</p>
-
                 <div class="row">
-                    <div class="form-group col m-2">
-                        <label for="ticket-blik">Wpisz kod BLIK:</label>
-                        <input type="number"
-                               required
-                               th:field="*{blik}"
-                               maxlength="6"
-                               minlength="6"
-                               class="form-control"
-                               placeholder="Podaj swój email" id="ticket-blik">
+                    <div class="form-group m-2">
+                        <label for="ticket-seats">Wybierz jedno lub więcej miejsc:</label>
+                        <select th:field="*{seatIds}"
+                                required
+                                multiple
+                                size="6"
+                                class="form-select" id="ticket-seats">
+                            <option th:each="info : ${seatAvailabilityInfo}"
+                                    th:disabled="${!info.available}"
+                                    th:text="${'Miejsce ' + info.seat.seatNumber + ' (rząd ' + info.seat.rowNumber + ')'}"
+                                    th:value="${info.seat.id}"></option>
+                        </select>
                     </div>
                 </div>
+
                 <div class="row my-4">
                     <div class="d-grid gap-2">
-                        <button class="btn btn btn-secondary m-2" type="submit">
+                        <button class="btn w3-button w3-deep-purple m-2" type="submit">
                             <strong>
-                                Kup bilet
+                                Przejdź do płatności
                             </strong>
                         </button>
                     </div>

@@ -1,9 +1,10 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <title>CinemAHE: Repertuar</title>
+
+    <title>CinemAHE: Kup bilet</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- w3 -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -12,6 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Codystar&display=swap" rel="stylesheet">
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,14 +29,15 @@
 
     <!-- local -->
     <link th:href="@{/css/global.css}" rel="stylesheet"/>
-    <link th:href="@{/css/movies.css}" rel="stylesheet"/>
+    <link th:href="@{/css/buy.css}" rel="stylesheet"/>
     <script type="text/javascript" th:src="@{/js/global.js}"></script>
-    <script type="text/javascript" th:src="@{/js/movies.js}"></script>
+    <script type="text/javascript" th:src="@{/js/buy.js}"></script>
 </head>
 
 <body>
+
 <header>
-    <nav class="navbar navbar-expand-sm fixed-top ml-5 ">
+    <nav class="navbar navbar-expand-sm fixed-top ml-5">
         <div class="container-fluid">
             <a class="navbar-brand text-warning" href="/home"><h1>cinemAHE</h1></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -49,7 +55,7 @@
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="/movies" role="button">
-                            <span class="cahe-nav-link-active">
+                            <span class="cahe-nav-link-inactive">
                                 REPERTUAR
                             </span>
                         </a>
@@ -63,7 +69,7 @@
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="/tickets" role="button">
-                            <span class="cahe-nav-link-inactive">
+                            <span class="cahe-nav-link-active">
                                 KUP BILET
                             </span>
                         </a>
@@ -84,40 +90,19 @@
 <main>
     <div class="row">
         <div class="col-lg-2 col-md-1"></div>
-        <div class="col-lg-8 col-md-10">
-            <h2 class="my-5">
-                W najbliższych dniach na ekranie
-            </h2>
-            <div class="row text-dark">
-                <div th:each="movie: ${movies}" class="card mb-4 mx-3 p-0 col-10 col-md-5">
-                    <img class="card-img-top" th:src="${movie.wideImage}" alt="a picture from the movie w-100" >
-                    <div class="card-body">
-                        <h4 class="card-title pnbb-card-title" th:text="${movie.title}">Tytuł filmu</h4>
-                        <p class="card-text pnbb-card-text" th:text="${'Gatunek: ' + movie.genre.genreName}">
-                            Gatunek: komedia
-                        </p>
-                        <p th:text="${movie.description}"
-                           class="card-text pnbb-card-text">
-                            Gorzka komedia opowiadająca o Adasiu Miauczyńskim (Marek Kondrat), człowieku, dla
-                            którego najbliższe pięć minut życia stanowi prawdziwe piekło. Mężczyzna jest uwikłany w
-                            natręctwa życia codziennego. To numeroman, ablutoman, nie akceptuje siebie i choć marzy
-                            o wielkiej miłości, ucieka od wszystkiego, co pachnie stałym związkiem. Na dodatek
-                            codzienne kontakty z ludźmi wywołują w nim agresję. W ciągu jednej doby, w czasie której
-                            rozgrywa się akcja, skoncentrowane zostały wszelkie możliwe uciążliwości.
-                        </p>
-                        <p>
-                            <a th:href="${'/tickets?movieId=' + movie.id}"
-                               type="button" class="btn w3-button w3-deep-purple ">
-                                Kup bilet
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-8 col-md-10 text-center mt-5 pt-5">
+            <h2 th:text="${title}" class="text-white"></h2>
+            <h3 class="text-white" th:text="${message}"></h3>
+            <p style="font-size: 8em;"><i class="fas fa-thumbs-up"></i></p>
+            <a class="btn w3-button w3-deep-purple m-2" type="button" href="/tickets">
+                <strong>
+                    Kup kolejne
+                </strong>
+            </a>
         </div>
+        <div class="col-lg-2 col-md-1"></div>
     </div>
 </main>
-
 
 <footer>
     <nav class="navbar navbar-expand-sm fixed-bottom">
@@ -128,5 +113,6 @@
         </div>
     </nav>
 </footer>
+
 </body>
 </html>
