@@ -34,16 +34,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `cinemahe`.`cahe_cinema`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cinemahe`.`cahe_cinema` (
-  `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(64) NOT NULL,
-  `address` VARCHAR(256) NOT NULL,
-  `contact` VARCHAR(256) NOT NULL,
-  `path_to_picture` VARCHAR(256) NOT NULL,
+CREATE TABLE `cahe_cinema` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  `address` varchar(256) NOT NULL,
+  `mail` varchar(256) NOT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `path_to_picture` varchar(256) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `cinema_id_UNIQUE` (`id` ASC),
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC))
-ENGINE = InnoDB;
+  UNIQUE KEY `cinema_id_UNIQUE` (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+
 
 
 -- -----------------------------------------------------
@@ -112,8 +115,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cinemahe`.`cahe_seance` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `beginning_date_time` DATETIME NOT NULL,
-  `ending_date_time` DATETIME NOT NULL,
+  `start_date` DATETIME NOT NULL,
+  `end_date` DATETIME NOT NULL,
   `movie_id` BIGINT NOT NULL,
   `room_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
