@@ -29,11 +29,11 @@ VALUES (1, 'Stanisław', 'Bareja'),
 
 INSERT INTO cahe_movie (id, title, year, genre_id, wide_image, thin_image, description)
 VALUES
-(1, 'Miś', 1980, 4, '../images/movies/Miś.png', '../images/movies/Miś.png',
+(1, 'Miś', 1980, 4, '../images/movies/Miś.png', '../images/movies/mis_thin.png',
 'Komedia złożona z groteskowych epizodów ukazujących rozpad PRL-owskiego systemu. Liczne sceny z barów mlecznych, urzędów i sklepów ujawniają absurd codziennej egzystencji Polaków. Wokół historii Ochódzkiego (Stanisław Tym) narasta wiele ważnych, małych opowieści charakteryzujących rzeczywistość początku lat osiemdziesiątych.'),
-(2, 'Brunet wieczorową porą', 1976, 4, '../images/movies/BrunetWieczorowaPora.png', '../images/movies/BrunetWieczorowaPora.png',
+(2, 'Brunet wieczorową porą', 1976, 4, '../images/movies/BrunetWieczorowaPora.png', '../images/movies/brunet_thin.png',
 'Cyganka przepowiada Michałowi Romanowi (Krzysztof Kowalewski) niezwykłe przeżycia, jednak on nie bierze poważnie tych proroctw. Gdy jego rodzina wyjeżdża na weekend, Michał zabiera się do zaległej pracy. Wtedy zaczynają się spełniać proroctwa Cyganki - Michał znajduje zaginiony zegarek, a w totolotku wylosowane zostają przepowiedziane liczby. Bohater zaczyna oczekiwać najgroźniejszej części przepowiedni - zapowiada ona zabicie bruneta, który zjawi się w jego mieszkaniu wieczorową porą...'),
-(3, 'Rozmowy kontrolowane', 1991, 4, '../images/movies/RozmowyKontrolowane.png','../images/movies/RozmowyKontrolowane.png',
+(3, 'Rozmowy kontrolowane', 1991, 4, '../images/movies/RozmowyKontrolowane.png','../images/movies/rozmowy_thin.png',
 'W grudniu 1981 roku Ryszard Ochódzki (Stanisław Tym) otrzymuje od pułkownika UB, Zygmunta Molibdena (Krzysztof Kowalewski), zadanie przeniknięcia do struktur "Solidarności" w Suwałkach. Wyposażony we wspólne zdjęcie z Lechem Wałęsą udaje się do województwa suwalskiego. Tam zastaje go stan wojenny. Po spowodowaniu wypadku samochodowego, Ochódzki porzuca swój pojazd i pożyczonym autem wraca do stolicy. Zatrzymuje go patrol milicji, który w bagażniku samochodu znajduje solidarnościowe ulotki. Bojąc się aresztowania, rzuca się do ucieczki...'),
 (4, 'Dzień świra', 2002, 4, '../images/movies/DzienSwira.png','../images/movies/DzienSwira.png',
 'Gorzka komedia opowiadająca o Adasiu Miauczyńskim (Marek Kondrat), człowieku, dla którego najbliższe pięć minut życia stanowi prawdziwe piekło. Mężczyzna jest uwikłany w natręctwa życia codziennego. To numeroman, ablutoman, nie akceptuje siebie i choć marzy o wielkiej miłości, ucieka od wszystkiego, co pachnie stałym związkiem. Na dodatek codzienne kontakty z ludźmi wywołują w nim agresję. W ciągu jednej doby, w czasie której rozgrywa się akcja, skoncentrowane zostały wszelkie możliwe uciążliwości.'),
