@@ -5,8 +5,9 @@ INSERT INTO cahe_genre (genre_name)
 VALUES ('science-fiction');
 
 INSERT INTO cahe_cinema (id, name, address, mail, phone, path_to_picture)
-VALUES (1, 'Warka', 'Ul. Maltańska 9, 26-666 Chrząszczyrzewoszyce.', 'kinowarka@gov.pl', '+48 662 724 534', '/webTech/cinemahe/pics/dummy.jpg'),
-	(2, 'Strong', 'Ul. Woltyżerki 23, 16-556 Akapulkowice.', 'kinostrong@gov.pl', '+48 382 048 020', '/webTech/cinemahe/pics/dummy1.jpg');
+VALUES
+    (1, 'Cinemahe Łódź', 'ul. Krakowska 71, 40-440 Łódź', 'cinemahe@lodz.pl', '+48 887 552 311', '../images/cinemas/cinema_lodz.jpg'),
+	(2, 'Cinemahe Kraków', 'ul. Łódzka 17, 20-220 Kraków', 'cinemahe@kraków.pl', '+48 113 335 788', '../cinemas/cinema_krakow.jpg');
 
 INSERT INTO cahe_room (name, cinema_id)
 VALUES ('Pszeniczna', 1),
