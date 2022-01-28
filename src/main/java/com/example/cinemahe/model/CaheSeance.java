@@ -16,6 +16,7 @@ public class CaheSeance
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private LocalDateTime startDate;
     private LocalDateTime endDate;
 

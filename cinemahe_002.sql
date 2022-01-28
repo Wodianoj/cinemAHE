@@ -4,9 +4,9 @@ VALUES ('horror'), ('sensacja'), ('romans'), ('komedia');
 INSERT INTO cahe_genre (genre_name)
 VALUES ('science-fiction');
 
-INSERT INTO cahe_cinema (id, name, address, contact, path_to_picture)
-VALUES (1, 'Warka', 'Ul. Maltańska 9, 26-666 Chrząszczyrzewoszyce.', 'Tel. +48 662 724 534; email: kinowarka@gov.pl;', '/webTech/cinemahe/pics/dummy.jpg'),
-	(2, 'Strong', 'Ul. Woltyżerki 23, 16-556 Akapulkowice.', 'Tel. +48 382 048 020; email: kinostrong@gov.pl', '/webTech/cinemahe/pics/dummy1.jpg');
+INSERT INTO cahe_cinema (id, name, address, mail, phone, path_to_picture)
+VALUES (1, 'Warka', 'Ul. Maltańska 9, 26-666 Chrząszczyrzewoszyce.', 'kinowarka@gov.pl', '+48 662 724 534', '/webTech/cinemahe/pics/dummy.jpg'),
+	(2, 'Strong', 'Ul. Woltyżerki 23, 16-556 Akapulkowice.', 'kinostrong@gov.pl', '+48 382 048 020', '/webTech/cinemahe/pics/dummy1.jpg');
 
 INSERT INTO cahe_room (name, cinema_id)
 VALUES ('Pszeniczna', 1),

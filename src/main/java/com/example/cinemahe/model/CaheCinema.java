@@ -9,13 +9,13 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class CaheCinema
-{
+public class CaheCinema {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String address;
-    private String contact;
+    private String mail;
+    private String phone;
     private String pathToPicture;
 }

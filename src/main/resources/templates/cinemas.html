@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
->
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 
-    <title>CinemAHE: Kontakt</title>
+    <title>CinemAHE: Nasze kina</title>
     <meta charset="utf-8">
 
     <!-- bootstrap -->
@@ -26,13 +26,13 @@
 
     <!-- local -->
     <link th:href="@{/css/global.css}" rel="stylesheet"/>
-    <link th:href="@{/css/contact.css}" rel="stylesheet"/>
+    <link th:href="@{/css/cinemas.css}" rel="stylesheet"/>
     <script type="text/javascript" th:src="@{/js/global.js}"></script>
-    <script type="text/javascript" th:src="@{/js/contact.js}"></script>
+    <script type="text/javascript" th:src="@{/js/cinemas.js}"></script>
 </head>
 
-
 <body>
+
 <header>
     <nav class="navbar navbar-expand-sm sticky-top ml-5">
         <div class="container-fluid">
@@ -84,36 +84,24 @@
     </nav>
 </header>
 
-<main>
-    <div class="row">
-        <div class="col-lg-2 col-md-1"></div>
-        <div class="col-lg-8 col-md-10">
-            <h2> SKONTAKTUJ SIĘ Z NAMI:</h2>
+<h2>Nasze kina</h2>
 
-            <div class="my-5"
-                 th:each="cinema: ${cinemas}">
-                <p>
-                    <i class="fas fa-envelope"></i>
-                    <span th:text="${cinema.name}">Nazwa Kina</span>,
-                    <span th:text="${cinema.address}">Adres kina</span>
-                </p>
-                <p>
-                    <i class="fas fa-phone mr-2"></i>
-                    telefon:
-                    <span th:text="${cinema.phone}">+48 999 999 999</span>
-                </p>
-                <p>
-                    <i class="fas fa-at mr-2"></i>
-                    <span th:text="${cinema.mail}">cinemahe@gmail.com</span>
-                </p>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-lg-2 col-md-1"></div>
+    <div class="col-lg-8 col-md-10 text-center mt-5 pt-5">
+        <h2 th:text="${title}" class="text-white"></h2>
+        <h3 class="text-white" th:text="${message}"></h3>
+        <a class="btn btn btn-secondary m-2" type="button" href="/register">
+            <strong>
+                Powrót do poprzedniej strony
+            </strong>
+        </a>
     </div>
-</main>
-
+    <div class="col-lg-2 col-md-1"></div>
+</div>
 
 <footer>
-    <nav class="navbar navbar-expand-sm fixed-bottom">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
         <div class="w-100 text-center">
             <p class="text-white text-center">
                 Copyright @ 2022 CinemAHE Polska
@@ -121,5 +109,6 @@
         </div>
     </nav>
 </footer>
+
 </body>
 </html>

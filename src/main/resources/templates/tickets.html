@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+
+    <title>CinemAHE: Kup bilet</title>
+    <meta charset="utf-8">
+
+    <!-- bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Codystar&display=swap" rel="stylesheet">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <!-- local -->
+    <link th:href="@{/css/global.css}" rel="stylesheet"/>
+    <link th:href="@{/css/buy.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/global.js}"></script>
+    <script type="text/javascript" th:src="@{/js/buy.js}"></script>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-sm sticky-top ml-5">
+        <div class="container-fluid">
+            <a class="navbar-brand text-warning" href="javascript:void(0)"><h1>cinemAHE</h1></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/home" role="button">
+                            <span class="cahe-nav-link-inactive">
+                                STRONA GŁÓWNA
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/movies" role="button">
+                            <span class="cahe-nav-link-inactive">
+                                REPERTUAR
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/cinemas" role="button">
+                            <span class="cahe-nav-link-inactive">
+                                NASZE KINA
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/tickets" role="button">
+                            <span class="cahe-nav-link-inactive">
+                                KUP BILET
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact" role="button">
+                            <span class="cahe-nav-link-active">
+                                KONTAKT
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<h2>Kup bilet</h2>
+
+<!--<div class="row">
+    <div class="col-lg-2 col-md-1"></div>
+    <div class="col-lg-8 col-md-10">
+        <form class="my-4 mx-2" th:action="@{/register/confirmation}" th:object="${application}" method="post">
+            <div class="row">
+                <div class="form-group col m-2">
+                    <label for="application-name">Imię:</label>
+                    <input type="text"
+                           required
+                           th:field="*{name}"
+                           maxlength="64"
+                           class="form-control"
+                           placeholder="Podaj swoje imię" id="application-name">
+                </div>
+                <div class="form-group col m-2">
+                    <label for="interpretation-icon">Nazwisko:</label>
+                    <input type="text"
+                           required
+                           th:field="*{surname}"
+                           maxlength="64"
+                           class="form-control"
+                           placeholder="Podaj swoje nazwisko "
+                           id="interpretation-icon">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col m-2">
+                    <label for="application-email">Email:</label>
+                    <input type="email"
+                           required
+                           th:field="*{email}"
+                           maxlength="320"
+                           class="form-control"
+                           placeholder="Podaj swój email" id="application-email">
+                </div>
+                <div class="form-group col m-2">
+                    <label for="application-phone">Telefon:</label>
+                    <input type="tel"
+                           maxlength="15"
+                           th:field="*{phone}"
+                           class="form-control"
+                           placeholder="Podaj swój telefon"
+                           id="application-phone">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col m-2">
+                    <label for="application-password">Hasło:</label>
+                    <input type="password"
+                           maxlength="64"
+                           th:field="*{password}"
+                           class="form-control"
+                           placeholder="Podaj swoje hasło" id="application-password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col m-2">
+                    <label for="application-address">Address:</label>
+                    <input type="text"
+                           maxlength="512"
+                           th:field="*{address}"
+                           class="form-control"
+                           placeholder="Podaj swój adres" id="application-address">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col m-2">
+                    <label for="application-address">Uwagi do administratora:</label>
+                    <textarea
+                            th:field="*{note}"
+                            class="form-control"
+                            placeholder="Wpisz notatkę" id="application-note"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col m-2">
+                    <label for="application-role">Wnioskowana rola:</label>
+                    <select th:field="*{appliedRoleId}"
+                            required
+                            class="form-select" id="application-role">
+                        <option th:each="role : ${roles}"
+                                th:text="${role.name}" th:value="${role.id}"></option>
+                    </select>
+                </div>
+                <div class="form-group col m-2">
+                    <label for="application-access">Wnioskowany poziom uprawnień:</label>
+                    <select th:field="*{appliedAccessId}"
+                            required
+                            class="form-select" id="application-access">
+                        <option th:each="access : ${accesses}"
+                                th:text="${access.description + ' (' + access.level  + ')'}"
+                                th:value="${access.id}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="d-grid gap-2">
+                    <button class="btn btn btn-secondary m-2" type="submit">
+                        <strong>
+                            Złóż
+                        </strong>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+<div class="col-lg-2 col-md-1"></div>
+</div>-->
+
+<footer>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+        <div class="w-100 text-center">
+            <p class="text-white text-center">
+                Copyright @ 2022 CinemAHE Polska
+            </p>
+        </div>
+    </nav>
+</footer>
+
+</body>
+</html>
