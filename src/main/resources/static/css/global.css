@@ -47,3 +47,12 @@ form {
 cahe-btn-primary {
     background-color: #7C00C8;
 }
+
+.pnbb-card-title {
+    font-family: 'Archivo Black', sans-serif;
+    margin-bottom: 0px;
+}
+
+.pnbb-card-text {
+    font-family: 'Road Rage', cursive;
+}

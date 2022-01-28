@@ -2,9 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org"
 >
 <head>
-
     <title>CinemAHE: Repertuar</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- w3 -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- bootstrap -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +32,7 @@
 
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm sticky-top ml-5">
+    <nav class="navbar navbar-expand-sm fixed-top ml-5 ">
         <div class="container-fluid">
             <a class="navbar-brand text-warning" href="javascript:void(0)"><h1>cinemAHE</h1></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -79,191 +82,46 @@
     </nav>
 </header>
 
-<h2>Repertuar</h2>
-
-<img src="../images/img1.png">
-<img src="images/img1.png">
-<img src="/images/img1.png">
-
-<img src="../images/movies/DieHard.png">
-<img src="images/movies/DieHard.png">
-<img src="/images/movies/DieHard.png">
-
-<img src="../images/movies/Matrix.jpg">
-<img src="images/movies/Matrix.jpg">
-<img src="/images/movies/Matrix.jpg">
-
-<!-- Carousel -->
-<div id="demo" class="carousel slide" data-bs-ride="carousel">
-
-    <!-- Indicators/dots -->
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-    </div>
-
-    <!-- The slideshow/carousel -->
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="/images/img1.png" alt="Los Angeles" class="d-block w-100">
-        </div>
-        <div class="carousel-item">
-            <img src="chicago.jpg" alt="Chicago" class="d-block w-100">
-        </div>
-        <div class="carousel-item">
-            <img src="ny.jpg" alt="New York" class="d-block w-100">
-        </div>
-    </div>
-
-    <!-- Left and right controls/icons -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
-</div>
-
-<!--<div class="row">
-    <div class="col-lg-2 col-md-1"></div>
-    <div class="col-lg-8 col-md-10">
-        <form class="my-4 mx-2" th:action="@{/application/list}" th:object="${filter}" method="post">
-            <div class="row">
-                <div class="row">
-                    <div class="form-group col m-2">
-                        <label for="filter-fragment">Fragment danych:</label>
-                        <input type="text"
-                               maxlength="512"
-                               th:field="*{dataFragment}"
-                               class="form-control"
-                               placeholder="Podaj fragment imienia, nazwiska, maila, etc." id="filter-fragment">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col m-2">
-                        <label for="application-role">Wnioskowana rola:</label>
-                        <select th:field="*{appliedRoleId}"
-                                class="form-select" id="application-role">
-                            <option th:each="role : ${roles}"
-                                    th:text="${role.name}" th:value="${role.id}"></option>
-                        </select>
-                    </div>
-                    <div class="form-group col m-2">
-                        <label for="application-access">Wnioskowany poziom uprawnień:</label>
-                        <select th:field="*{appliedAccessId}"
-                                class="form-select" id="application-access">
-                            <option th:each="access : ${accesses}"
-                                    th:text="${access.description + ' (' + access.level  + ')'}"
-                                    th:value="${access.id}"></option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row my-4">
-                    <div class="d-grid gap-2">
-                        <button class="btn btn btn-secondary m-2" type="submit">
-                            <strong>
-                                Szukaj
-                            </strong>
-                        </button>
-                    </div>
-                </div>
-        </form>
-    </div>
-    <div class="col-lg-2 col-md-1"></div>
-</div>
-
-<div class="row">
-    <div class="col-lg-2 col-md-1"></div>
-    <div class="col-lg-8 col-md-10">
-        <div th:each="app : ${applications}" class="card m-3">
-            <div class="card-header">
-                <span th:text="${app.name + ' ' + app.surname}"></span>
-                <span th:text="${' - ' + app.email}"></span>
-                <th:block th:if="${app.phone != null}">
-                    <span th:text="${' (tel. ' + app.phone + ') '}"></span>
-                </th:block>
-                <div class="card-body">
-                    <th:block th:if="${app.note != null}">
-                        <p th:text="${app.note}"></p>
-                    </th:block>
-                    <th:block th:if="${app.note == null}">
-                        <p>Brak notatki do administratora</p>
-                    </th:block>
-                </div>
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col">
-                            <p>
-                                Rola:
-                                <span th:text="${app.appliedRole.name}"></span>
-                            </p>
-                        </div>
-                        <div class="col">
-                            <p>
-                                Poziom dostępu:
-                                <span th:text="${app.appliedAccess.description + ' (' + app.appliedAccess.level + ') '}"></span>
-                            </p>
-                        </div>
+<main>
+    <div class="row">
+        <div class="col-lg-2 col-md-1"></div>
+        <div class="col-lg-8 col-md-10">
+            <h2 class="my-5">
+                W najbliższych dniach na ekranie
+            </h2>
+            <div class="row text-dark">
+                <div th:each="movie: ${movies}" class="card mb-4 mx-3 p-0 col-10 col-md-5">
+                    <img class="card-img-top" th:src="${movie.wideImage}" alt="a picture from the movie w-100" >
+                    <div class="card-body">
+                        <h4 class="card-title pnbb-card-title" th:text="${movie.title}">Tytuł filmu</h4>
+                        <p class="card-text pnbb-card-text" th:text="${'Gatunek: ' + movie.genre.genreName}">
+                            Gatunek: komedia
+                        </p>
+                        <p th:text="${movie.description}"
+                           class="card-text pnbb-card-text">
+                            Gorzka komedia opowiadająca o Adasiu Miauczyńskim (Marek Kondrat), człowieku, dla
+                            którego najbliższe pięć minut życia stanowi prawdziwe piekło. Mężczyzna jest uwikłany w
+                            natręctwa życia codziennego. To numeroman, ablutoman, nie akceptuje siebie i choć marzy
+                            o wielkiej miłości, ucieka od wszystkiego, co pachnie stałym związkiem. Na dodatek
+                            codzienne kontakty z ludźmi wywołują w nim agresję. W ciągu jednej doby, w czasie której
+                            rozgrywa się akcja, skoncentrowane zostały wszelkie możliwe uciążliwości.
+                        </p>
+                        <p>
+                            <a th:href="${'/tickets?movieId=' + movie.id}"
+                               type="button" class="btn w3-button w3-deep-purple ">
+                                Kup bilet
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-1"></div>
         </div>
     </div>
-</div>-->
+</main>
 
-<div class="row">
-    <div class="col-lg-2 col-md-1"></div>
-    <div id="demo" class="carousel slide col-lg-8 col-md-10" data-bs-ride="carousel">
-
-        <!-- Indicators/dots -->
-        <div class="carousel-inner">
-            <!-- Attribution: https://www.freepik.com/free-photo/3d-render-alien-spooky-landscape_17308370.htm#query=ufo&position=6&from_view=search-->
-            <div class="carousel-item active">
-                <img src="../images/img1.png" alt="Ufo and pyramids" class="d-block w-100">
-                <div class="carousel-caption">
-                    <h3 class="shadow-lg">Obcy czy anoreksja?</h3>
-                    <p>Co Ty o tym sądzisz?</p>
-                </div>
-            </div>
-            <!-- Attribution: https://www.freepik.com/free-vector/ufo-steal-egypt-pyramids-top-night-desert-alien-saucer-pull-piece-egyptian-pharaoh-tomb-light-beam_12332074.htm#query=ufo&position=19&from_view=search-->
-            <div class="carousel-item">
-                <img src="../images/img2.png" alt="An alien" class="d-block w-100">
-                <div class="carousel-caption">
-                    <h3 class="shadow-lg">Balon meteorologiczny</h3>
-                    <p>Na tle egipskich piramid.</p>
-                </div>
-            </div>
-            <!--Attribution: <a href="https://www.freepik.com/vectors/circle">Circle vector created by upklyak - www.freepik.com</a>-->
-            <div class="carousel-item">
-                <img src="../images/img3.png" alt="Three lightnings" class="d-block w-100">
-                <div class="carousel-caption">
-                    <h3 class="shadow-lg">Zjawiska naturalne</h3>
-                    <p>Uwielbiam je obserwować, a Ty?</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- The slideshow/carousel -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-        </div>
-
-        <!-- Left and right controls/icons -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </div>
-</div>
 
 <footer>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+    <nav class="navbar navbar-expand-sm fixed-bottom">
         <div class="w-100 text-center">
             <p class="text-white text-center">
                 Copyright @ 2022 CinemAHE Polska
@@ -271,6 +129,5 @@
         </div>
     </nav>
 </footer>
-
 </body>
 </html>

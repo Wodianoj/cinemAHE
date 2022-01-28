@@ -6,8 +6,8 @@ VALUES ('science-fiction');
 
 INSERT INTO cahe_cinema (id, name, address, mail, phone, path_to_picture)
 VALUES
-    (1, 'Cinemahe Łódź', 'ul. Krakowska 71, 40-440 Łódź', 'cinemahe@lodz.pl', '+48 887 552 311', '../images/cinemas/cinema_lodz.jpg'),
-	(2, 'Cinemahe Kraków', 'ul. Łódzka 17, 20-220 Kraków', 'cinemahe@kraków.pl', '+48 113 335 788', '../cinemas/cinema_krakow.jpg');
+    (1, 'Cinemahe Łódź', 'ul. Krakowska 71, 40-440 Łódź', 'cinemahe@lodz.pl', '+48 887 552 311', '../images/cinemas/lodz.png'),
+	(2, 'Cinemahe Kraków', 'ul. Łódzka 17, 20-220 Kraków', 'cinemahe@kraków.pl', '+48 113 335 788', '../images/cinemas/krakow.png');
 
 INSERT INTO cahe_room (name, cinema_id)
 VALUES ('Pszeniczna', 1),
