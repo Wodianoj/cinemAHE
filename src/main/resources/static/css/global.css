@@ -56,3 +56,7 @@ cahe-btn-primary {
 .pnbb-card-text {
     font-family: 'Road Rage', cursive;
 }
+
+.pnbb-cross {
+  text-decoration: line-through;
+}

@@ -1,6 +1,7 @@
 package com.example.cinemahe.service;
 
 import com.example.cinemahe.data.CaheSeatAvailabilityInfo;
+import com.example.cinemahe.form.CaheSeatSearchForm;
 import com.example.cinemahe.model.CaheSeance;
 import com.example.cinemahe.model.CaheSeat;
 import com.example.cinemahe.repository.CaheSeanceRepository;
@@ -28,9 +29,11 @@ public class CaheSeatService
         this.ticketRepository = ticketRepository;
     }
 
-    public List<CaheSeatAvailabilityInfo> getAvailabilityInfoForSeance(final Long seanceId)
+    public List<CaheSeatAvailabilityInfo> getAvailabilityInfoForSeance(final CaheSeatSearchForm searchForm)
     {
+        final Long seanceId = searchForm.getSeanceId();
         final CaheSeance seance = seanceRepository.findById(seanceId).orElseThrow(() -> new IllegalArgumentException("No such seance"));
+
         return seatRepository.findByRoomId(seance.getRoom().getId()).stream()
                 .map(seat -> this.getSeatAvailabilityReport(seanceId, seat))
                 .toList();
