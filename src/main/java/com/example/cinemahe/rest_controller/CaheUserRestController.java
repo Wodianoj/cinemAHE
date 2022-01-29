@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(path = "/user")
+@RequestMapping(path = "/api/v1/user")
 public class CaheUserRestController
 {
     @Autowired
