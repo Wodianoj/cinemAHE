@@ -1,7 +1,6 @@
 package com.example.cinemahe.view_controller;
 
 import com.example.cinemahe.data.CahePurchaseRequest;
-import com.example.cinemahe.data.CaheSeatAvailabilityInfo;
 import com.example.cinemahe.data.CaheTicketRequest;
 import com.example.cinemahe.form.CaheTicketRequestForm;
 import com.example.cinemahe.repository.*;
@@ -16,13 +15,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
 
 import static java.util.UUID.*;
 
 @Controller
-public class TicketsPageController
+public class CaheTicketsPageController
 {
     private final CaheMovieRepository movieRepository;
     private final CaheGenreRepository genreRepository;
@@ -37,15 +34,15 @@ public class TicketsPageController
     private final CaheTicketService ticketService;
 
     @Autowired
-    public TicketsPageController(final CaheMovieRepository movieRepository,
-                                 final CaheGenreRepository genreRepository,
-                                 final CaheCinemaRepository cinemaRepository,
-                                 final CaheRoomRepository roomRepository,
-                                 final CaheSeatRepository seatRepository,
-                                 final CaheSeanceRepository seanceRepository,
-                                 final CaheTicketRequestCache requestCache,
-                                 final CaheSeatService seatService,
-                                 final CaheTicketService ticketService)
+    public CaheTicketsPageController(final CaheMovieRepository movieRepository,
+                                     final CaheGenreRepository genreRepository,
+                                     final CaheCinemaRepository cinemaRepository,
+                                     final CaheRoomRepository roomRepository,
+                                     final CaheSeatRepository seatRepository,
+                                     final CaheSeanceRepository seanceRepository,
+                                     final CaheTicketRequestCache requestCache,
+                                     final CaheSeatService seatService,
+                                     final CaheTicketService ticketService)
     {
         this.movieRepository = movieRepository;
         this.genreRepository = genreRepository;

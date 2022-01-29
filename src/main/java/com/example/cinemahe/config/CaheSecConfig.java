@@ -11,7 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SecConfig extends WebSecurityConfigurerAdapter
+public class CaheSecConfig extends WebSecurityConfigurerAdapter
 {
     private static final String COMMON_PASSWORD = "H@slo123";
 

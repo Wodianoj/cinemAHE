@@ -7,24 +7,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * This view controller is responsible for displaying the page providing contact data
- * for the CinemAHE company and particular cinemas.
+ * This view controller is responsible for displaying the page presenting
+ * all the cinemas owned by the CinemAHE company.
  */
 @Controller
-public class ContactPageController
+public class CaheCinemasPageController
 {
     private final CaheCinemaRepository cinemaRepository;
 
     @Autowired
-    public ContactPageController(CaheCinemaRepository cinemaRepository)
+    public CaheCinemasPageController(CaheCinemaRepository cinemaRepository)
     {
         this.cinemaRepository = cinemaRepository;
     }
 
-    @GetMapping("/contact")
+    @GetMapping("/cinemas")
     public String contact(Model model)
     {
         model.addAttribute("cinemas", cinemaRepository.findAll());
-        return "contact";
+
+        return "cinemas";
     }
 }
