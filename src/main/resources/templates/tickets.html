@@ -26,8 +26,6 @@
 
     <!-- local -->
     <link th:href="@{/css/global.css}" rel="stylesheet"/>
-    <link th:href="@{/css/tickets.css}" rel="stylesheet"/>
-    <script type="text/javascript" th:src="@{/js/global.js}"></script>
     <script type="text/javascript" th:src="@{/js/tickets.js}"></script>
 </head>
 
@@ -116,6 +114,7 @@
                         <select th:field="*{seanceId}"
                                 required
                                 class="form-select" id="ticket-seance">
+                            <option value="0">---</option>
                             <option th:each="seance : ${seances}"
                                     th:text="${seance.startDate + ' (sala: ' + seance.room.name + ', ' + seance.room.cinema.name + ', film: ' + seance.movie.title + ')' }"
                                     th:value="${seance.id}"></option>

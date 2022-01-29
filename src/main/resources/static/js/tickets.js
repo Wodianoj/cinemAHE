@@ -26,6 +26,7 @@ $(document).ready(function(){
                 seanceSelect.append($("<option></option>").attr("value", "0").text("brak seansów"));
             }
             else {
+                seanceSelect.append($("<option></option>").attr("value", "0").text("---"));
                 for (var i = 0; i < seances.length; i++)
                 {
                     let date = formatDate(new Date(seances[i].startDate));
@@ -40,6 +41,10 @@ $(document).ready(function(){
 
         $("#ticket-seance").change(function(){
             let seanceId = $("#ticket-seance").val();
+            if (seanceId == 0)
+            {
+                return;
+            }
 
             fetch('http://localhost:8080/api/v1/seat/search', {
                 method: 'POST',
@@ -57,16 +62,16 @@ $(document).ready(function(){
 
                 for (var i = 0; i < seats.length; i++)
                 {
-                    let seat = seats[i];
-                    let text = 'Miejsce ' + seat.seatNumber + ' (rząd ' + seat.rowNumber + ')';
+                    let seatInfo = seats[i];
+                    let text = 'Miejsce ' + seatInfo.seat.seatNumber + ' (rząd ' + seatInfo.seat.rowNumber + ')';
                     let option = $("<option></option>");
-                    option.attr("value", seatId);
+                    option.attr("value", seatInfo.seat.id);
                     option.text(text);
-                    if (!seat.available) {
+                    if (!seatInfo.available) {
                         option.attr("disabled", true);
                         option.attr("style", "text-decoration: line-through;");
                     }
-                    seanceSelect.append(option);
+                    seatSelect.append(option);
                 }
                 console.log("zzz");
             });
