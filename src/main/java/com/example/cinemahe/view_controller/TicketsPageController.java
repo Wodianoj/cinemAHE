@@ -68,9 +68,6 @@ public class TicketsPageController
         model.addAttribute("seats", seatRepository.findAll());
         model.addAttribute("seances", seanceRepository.findAll());
 
-        final List<CaheSeatAvailabilityInfo> availableSeats = seatService.getAvailabilityInfoForSeance(1L);
-        model.addAttribute("seatAvailabilityInfo", availableSeats);
-
         final CaheTicketRequestForm caheTicketRequestForm = CaheTicketRequestForm.builder().build();
         model.addAttribute("ticketRequest", caheTicketRequestForm);
 

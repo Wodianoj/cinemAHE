@@ -38,6 +38,7 @@ public class SecConfig extends WebSecurityConfigurerAdapter
     protected void configure(final HttpSecurity http) throws Exception
     {
         http
+                .cors().and().csrf().disable()
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()

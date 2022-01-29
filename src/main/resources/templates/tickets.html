@@ -27,8 +27,6 @@
 
     <!-- local -->
     <link th:href="@{/css/global.css}" rel="stylesheet"/>
-    <link th:href="@{/css/tickets.css}" rel="stylesheet"/>
-    <script type="text/javascript" th:src="@{/js/global.js}"></script>
     <script type="text/javascript" th:src="@{/js/tickets.js}"></script>
 </head>
 
@@ -96,6 +94,7 @@
                     <div class="form-group col m-2">
                         <label for="ticket-cinema">Wybierz kino:</label>
                         <select class="form-select cahe-criteria-one" id="ticket-cinema">
+                            <option value="0">---</option>
                             <option th:each="cinema : ${cinemas}"
                                     th:text="${cinema.name}" th:value="${cinema.id}"></option>
                         </select>
@@ -103,6 +102,7 @@
                     <div class="form-group col m-2">
                         <label for="ticket-movie">Wybierz film:</label>
                         <select class="form-select cahe-criteria-one" id="ticket-movie">
+                            <option value="0">---</option>
                             <option th:each="movie : ${movies}"
                                     th:text="${movie.title + ' (' + movie.genre.genreName  + ')'}"
                                     th:value="${movie.id}"></option>
@@ -115,8 +115,9 @@
                         <select th:field="*{seanceId}"
                                 required
                                 class="form-select" id="ticket-seance">
+                            <option value="0">---</option>
                             <option th:each="seance : ${seances}"
-                                    th:text="${seance.startDate + ' (sala: ' + seance.room.name + ')' }"
+                                    th:text="${seance.startDate + ' (sala: ' + seance.room.name + ', ' + seance.room.cinema.name + ', film: ' + seance.movie.title + ')' }"
                                     th:value="${seance.id}"></option>
                         </select>
                     </div>
@@ -130,10 +131,6 @@
                                 multiple
                                 size="6"
                                 class="form-select" id="ticket-seats">
-                            <option th:each="info : ${seatAvailabilityInfo}"
-                                    th:disabled="${!info.available}"
-                                    th:text="${'Miejsce ' + info.seat.seatNumber + ' (rząd ' + info.seat.rowNumber + ')'}"
-                                    th:value="${info.seat.id}"></option>
                         </select>
                     </div>
                 </div>
