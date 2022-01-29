@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping(path = "/seat")
+@RequestMapping(path = "/api/v1/seat")
 public class CaheSeatRestController
 {
     private final CaheSeatRepository caheSeatRepository;
