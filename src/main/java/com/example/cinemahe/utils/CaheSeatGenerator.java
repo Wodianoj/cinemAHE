@@ -1,6 +1,6 @@
 package com.example.cinemahe.utils;
 
-public class SeatGenerator
+public class CaheSeatGenerator
 {
     public static void main(String[] args)
     {

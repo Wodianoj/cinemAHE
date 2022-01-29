@@ -7,12 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MoviesPageController {
+public class CaheMoviesPageController
+{
 
     private final CaheMovieService movieService;
 
     @Autowired
-    public MoviesPageController(CaheMovieService movieService) {
+    public CaheMoviesPageController(CaheMovieService movieService) {
         this.movieService = movieService;
     }
 
