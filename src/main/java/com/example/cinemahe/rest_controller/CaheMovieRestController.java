@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(path = "/movie")
+@RequestMapping(path = "/api/v1/movie")
 public class CaheMovieRestController
 {
     @Autowired
